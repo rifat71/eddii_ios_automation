@@ -7,6 +7,7 @@ const connectWithDexcomPage = require("../../pageObjects/connectWithDexcom.page"
 const addGuardianPage = require("../../pageObjects/addGuardian.page");
 const dexcomLoginPage = require("../../pageObjects/dexcomLogin.page");
 const email = require("../../utils/email");
+const verificationPage = require("../../pageObjects/verification.page");
 
 describe('EDDII App Testing', () => {
 
@@ -36,14 +37,11 @@ describe('EDDII App Testing', () => {
       .then((obj) => obj.setTypes())
       .then((obj) => obj.clickContinueButton());
 
-    //verification page (2)
-    // let el7 = await driver.$("~text-input-flat");
-    // await el7.click();
-    // await signupPage.getVerificationCode(driver.username);
-    // await el7.setValue(driver.verificationCode);
-    // await signupPage.clickReturnButton();
-    // let el8 = await driver.$("~Continue");
-    // await el8.click();
+    //verification
+    await verificationPage
+      .setVerificationCode("1234")
+      .then((obj) => obj.clickReturnButton())
+      .then((obj) => obj.clickContinueButton());
 
     // add guardians
     await addGuardianPage
@@ -79,7 +77,7 @@ describe('EDDII App Testing', () => {
       .then((obj) => obj.clickHelloEddii())
       .then((obj) => obj.clickNext())
       .then((obj) => obj.clickLetsGO());
-      
+
   });
 
 });
