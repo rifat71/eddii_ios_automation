@@ -3,14 +3,14 @@ const { expect } = require('chai');
 
 class Email {
 
-    async getFetchInbox() {
+    async getMessage() {
         const token = "d19be0e785a34a89a645e165debf3a3d";
         const domain = "eddii.testinator.com";
         const inbox_name = "*";
 
         const url = `https://api.mailinator.com/api/v2/domains/eddii.testinator.com/messages/abc-1691686437-810208370`;
         const headers = {
-            Authorization: 'Bearer d19be0e785a34a89a645e165debf3a3d'
+            Authorization: 'Bearer a00c79d9f988487f80b3e2715b204553'
         };
 
         await axios.get(url, { headers })

@@ -16,7 +16,7 @@ describe('EDDII App Testing', () => {
   });
 
   it('Sign-up', async () => {
-    // await email.getFetchInbox();
+    // await email.getMessage();
     // sign-up
     await signupPage
       .clickAllowButton()
