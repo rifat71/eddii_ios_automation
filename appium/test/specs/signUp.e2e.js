@@ -22,11 +22,11 @@ describe('EDDII App Testing', () => {
       .then((obj) => obj.clickCreateAccount())
       .then((obj) => obj.quickNotesIsDisplayed())
       .then((obj) => obj.clickContinueButton())
-      .then((obj) => obj.setEmail('galib123@mailinator.com'))
+      .then((obj) => obj.setEmail('galib125@mailinator.com'))
       .then((obj) => obj.setPassword('Password1#'))
       .then((obj) => obj.setReInterPassword('Password1#'))
-      .then((obj) => obj.clickRadioButton())
       .then((obj) => obj.clickReturnButton())
+      .then((obj) => obj.clickRadioButton())
       .then((obj) => obj.clickContinueButton2());
 
     await parksAndPricesPage.clickTrialButton();
