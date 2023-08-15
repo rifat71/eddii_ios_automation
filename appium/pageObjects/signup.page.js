@@ -1,3 +1,4 @@
+const { Promise } = require('bluebird');
 const email = require('../utils/email');
 const emailObj = require('../utils/email');
 
@@ -37,6 +38,7 @@ class Signup {
         return this;
     }
     async clickCreateAccount() {
+        await Promise.delay(2000);
         await driver.waitUntil(() => this.createAccount.isEnabled());
         await this.createAccount.isDisplayed();
         await this.createAccount.click();
