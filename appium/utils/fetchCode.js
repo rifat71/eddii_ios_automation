@@ -25,13 +25,13 @@ const responseData = {
             "headers": {
                 "content-type": "text/plain; charset=\"UTF-8\""
             },
-            "body": "here is the verification code: 012345\r\n"
+            "body": "Thanks for signing up Your verification code is 781890\r\n"
         },
         {
             "headers": {
                 "content-type": "text/html; charset=\"UTF-8\""
             },
-            "body": "<div dir=\"ltr\">here is the verification code: 012345</div>\r\n"
+            "body": "<div dir=\"ltr\">Thanks for signing up Your verification code is 781890</div>\r\n"
         }
     ],
     "from": "test qashahriyar",
@@ -48,7 +48,7 @@ for (const part of responseData.parts) {
         const bodyText = part.body;
         console.log("Text/Plain Body:", bodyText);
         const verificationCodePattern = /verification code is (\d+)/i;
-        const match = text.match(verificationCodePattern);
+        const match = bodyText.match(verificationCodePattern);
         if (match && match[1]) {
             const verificationCode = match[1];
             console.log("Extracted Verification Code:", verificationCode);
