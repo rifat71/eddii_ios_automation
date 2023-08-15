@@ -20,11 +20,11 @@ class Email {
                     console.log(response.data);
                     const jsonData = response.data;
                     const targetTo = driver.mailIdWithoutHost;
-                    console.log("Target to: "+ targetTo);
+                    console.log("Target to: " + targetTo);
                     jsonData.msgs.forEach(msg => {
                         if (msg.to === targetTo) {
                             driver.messageId = msg.id;
-                            console.log("Message id: "+ driver.messageId);
+                            console.log("Message id: " + driver.messageId);
                         }
                     });
                 } else {
@@ -47,11 +47,11 @@ class Email {
         };
         await Promise.delay(5000);
         await axios.get(url, { headers })
-            .then(response => {
+            .then(async response => {
                 expect(response.status).to.equal(200);
                 if (response.status === 200) {
                     console.log(response.data);
-                    this.getVerificationCode(response.data);
+                    await this.getVerificationCode(response.data);
                 } else {
                     console.log('Request succeeded, but status code is not 200:', response.status);
                 }
