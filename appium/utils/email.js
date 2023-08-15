@@ -62,21 +62,15 @@ class Email {
 
     }
     async getVerificationCode(responseData) {
-        for (const part of responseData.parts) {
-            const contentType = part.headers["content-type"];
-            if (contentType && contentType.includes("text/plain")) {
-                const bodyText = part.body;
-                console.log("Text/Plain Body:", bodyText);
-                const verificationCodePattern = /verification code is (\d+)/i;
-                const match = bodyText.match(verificationCodePattern);
-                if (match && match[1]) {
-                    driver.verificationCode = match[1];
-                    console.log("Extracted Verification Code:", driver.verificationCode);
-                } else {
-                    console.log("Verification code not found.");
-                }
-                break;
-            }
+        const bodyText = responseData.parts[0].body;
+        console.log(bodyText);
+        const verificationCodePattern = /verification code is (\d+)/i;
+        const match = bodyText.match(verificationCodePattern);
+        if (match && match[1]) {
+            driver.verificationCode = match[1];
+            console.log("Extracted Verification Code:", driver.verificationCode);
+        } else {
+            console.log("Verification code not found.");
         }
     }
     async randomMailGenerator() {
