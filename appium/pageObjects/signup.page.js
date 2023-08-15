@@ -1,3 +1,4 @@
+const email = require('../utils/email');
 const emailObj = require('../utils/email');
 
 class Signup {
@@ -60,10 +61,10 @@ class Signup {
 
     // set
     async setEmail(email) {
-        driver.email = email ? email : await emailObj.emailGenerator();
+        driver.emailId = email ? email : await emailObj.randomMailGenerator();
         await this.emailInput.click();
         await this.emailInput.clearValue();
-        await this.emailInput.setValue(driver.email);
+        await this.emailInput.setValue(driver.emailid);
         return this;
     }
     async setPassword(pass) {

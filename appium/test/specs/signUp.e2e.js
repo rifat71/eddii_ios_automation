@@ -23,7 +23,7 @@ describe('EDDII App Testing', () => {
       .then((obj) => obj.clickCreateAccount())
       .then((obj) => obj.quickNotesIsDisplayed())
       .then((obj) => obj.clickContinueButton())
-      .then((obj) => obj.setEmail('galib125@mailinator.com'))
+      .then((obj) => obj.setEmail())
       .then((obj) => obj.setPassword('Password1#'))
       .then((obj) => obj.setReInterPassword('Password1#'))
       .then((obj) => obj.clickReturnButton())
@@ -39,7 +39,7 @@ describe('EDDII App Testing', () => {
 
     //verification
     await verificationPage
-      .setVerificationCode("1234")
+      .setVerificationCode(driver.verificationCode)
       .then((obj) => obj.clickReturnButton())
       .then((obj) => obj.clickContinueButton());
 
