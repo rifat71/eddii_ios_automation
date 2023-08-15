@@ -1,6 +1,6 @@
 const axios = require('axios');
+const { Promise } = require('bluebird');
 const { expect } = require('chai');
-
 class Email {
 
     async fetchInbox() {
@@ -12,6 +12,7 @@ class Email {
         const headers = {
             Authorization: 'Bearer a00c79d9f988487f80b3e2715b204553'
         };
+        await Promise.delay(10000);
         await axios.get(url, { headers })
             .then(response => {
                 expect(response.status).to.equal(200);
@@ -19,9 +20,11 @@ class Email {
                     console.log(response.data);
                     const jsonData = response.data;
                     const targetTo = driver.mailIdWithoutHost;
+                    console.log("Target to: "+ targetTo);
                     jsonData.msgs.forEach(msg => {
                         if (msg.to === targetTo) {
                             driver.messageId = msg.id;
+                            console.log("Message id: "+ driver.messageId);
                         }
                     });
                 } else {
@@ -42,7 +45,7 @@ class Email {
         const headers = {
             Authorization: 'Bearer a00c79d9f988487f80b3e2715b204553'
         };
-
+        await Promise.delay(5000);
         await axios.get(url, { headers })
             .then(response => {
                 expect(response.status).to.equal(200);
