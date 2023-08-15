@@ -78,7 +78,7 @@ class Email {
     }
     async randomMailGenerator() {
         const randomNumber = Math.floor(Math.random() * (1000000 - 10000 + 1)) + 10000;
-        driver.randomMailId = `abc${randomNumber}@mailinator.com`;
+        driver.randomMailId = `abc${randomNumber}@eddii.testinator.com`;
         driver.mailIdWithoutHost = `abc${randomNumber}`;
         return driver.randomMailId;
     }
