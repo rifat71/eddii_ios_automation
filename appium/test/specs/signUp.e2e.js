@@ -11,12 +11,7 @@ const verificationPage = require("../../pageObjects/verification.page");
 
 describe('EDDII App Testing', () => {
 
-  after(() => {
-    // console.log("Email ****/ : "+driver.mailId);
-  });
-
   it('Sign-up', async () => {
-    // await email.getMessage();
     // sign-up
     await signupPage
       .clickAllowButton()
@@ -30,17 +25,18 @@ describe('EDDII App Testing', () => {
       .then((obj) => obj.clickRadioButton())
       .then((obj) => obj.clickContinueButton2());
 
+    //verification
+    await verificationPage
+      .setVerificationCode()
+      .then((obj) => obj.clickReturnButton())
+      .then((obj) => obj.clickContinueButton());
+
+    // The perks and the prices
     await parksAndPricesPage.clickTrialButton();
     await moreDetailsPage
       .setNickName('Aman')
       .then((obj) => obj.setAge())
       .then((obj) => obj.setTypes())
-      .then((obj) => obj.clickContinueButton());
-
-    //verification
-    await verificationPage
-      .setVerificationCode(driver.verificationCode)
-      .then((obj) => obj.clickReturnButton())
       .then((obj) => obj.clickContinueButton());
 
     // add guardians

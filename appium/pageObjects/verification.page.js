@@ -1,4 +1,5 @@
 const Promise = require(`bluebird`);
+const email = require("../utils/email");
 
 class Verification {
 
@@ -25,10 +26,13 @@ class Verification {
     }
 
     // set
-    async setVerificationCode(text) {
+    async setVerificationCode() {
+        await email.fetchInbox();
+        await email.getMessage();
+        await Promise.delay(1000);
         await this.textInput.click();
         await this.textInput.clearValue();
-        await this.textInput.setValue(text);
+        await this.textInput.setValue(driver.verificationCode);
         await Promise.delay(2000);
         return this;
     }
