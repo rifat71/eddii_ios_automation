@@ -12,7 +12,6 @@ class Email {
         const headers = {
             Authorization: 'Bearer a00c79d9f988487f80b3e2715b204553'
         };
-
         await axios.get(url, { headers })
             .then(response => {
                 expect(response.status).to.equal(200);
@@ -20,8 +19,6 @@ class Email {
                     console.log(response.data);
                     const jsonData = response.data;
                     const targetTo = "abc";
-                    let messageId = "";
-
                     jsonData.msgs.forEach(msg => {
                         if (msg.to === targetTo) {
                             driver.messageId = msg.id;
@@ -41,7 +38,7 @@ class Email {
         const domain = "eddii.testinator.com";
         const inbox_name = "*";
 
-        const url = `https://api.mailinator.com/api/v2/domains/eddii.testinator.com/messages/${dri}`;
+        const url = `https://api.mailinator.com/api/v2/domains/eddii.testinator.com/messages/${driver.messageId}`;
         const headers = {
             Authorization: 'Bearer a00c79d9f988487f80b3e2715b204553'
         };
