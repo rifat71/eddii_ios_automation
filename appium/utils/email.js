@@ -16,11 +16,11 @@ class Email {
         await axios.get(url, { headers })
             .then(response => {
                 expect(response.status).to.equal(200);
-                // if (response.status === 200) {
-                //     console.log(response.data);
-                // } else {
-                //     console.log('Request succeeded, but status code is not 200:', response.status);
-                // }
+                if (response.status === 200) {
+                    console.log(response.data);
+                } else {
+                    console.log('Request succeeded, but status code is not 200:', response.status);
+                }
             })
             .catch(error => {
                 console.error('An error occurred:', error);
