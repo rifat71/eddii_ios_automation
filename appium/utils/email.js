@@ -76,5 +76,10 @@ class Email {
             }
         }
     }
+    async randomMailGenerator() {
+        const randomNumber = Math.floor(Math.random() * (1000000 - 10000 + 1)) + 10000;
+        const randomMailId = `abc${randomNumber}@mailinator.com`;
+        return randomMailId;
+    }
 }
 module.exports = new Email();

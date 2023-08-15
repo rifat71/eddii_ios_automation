@@ -1,4 +1,3 @@
-// JSON response data
 const responseData = {
     "fromfull": "testqashahriyar@gmail.com",
     "headers": {
