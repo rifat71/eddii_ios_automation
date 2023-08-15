@@ -18,7 +18,7 @@ class Email {
                 if (response.status === 200) {
                     console.log(response.data);
                     const jsonData = response.data;
-                    const targetTo = "abc";
+                    const targetTo = driver.mailIdWithoutHost;
                     jsonData.msgs.forEach(msg => {
                         if (msg.to === targetTo) {
                             driver.messageId = msg.id;
@@ -78,8 +78,9 @@ class Email {
     }
     async randomMailGenerator() {
         const randomNumber = Math.floor(Math.random() * (1000000 - 10000 + 1)) + 10000;
-        const randomMailId = `abc${randomNumber}@mailinator.com`;
-        return randomMailId;
+        driver.randomMailId = `abc${randomNumber}@mailinator.com`;
+        driver.mailIdWithoutHost = `abc${randomNumber}`;
+        return driver.randomMailId;
     }
 }
 module.exports = new Email();
