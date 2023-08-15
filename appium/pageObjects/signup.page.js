@@ -64,7 +64,7 @@ class Signup {
         driver.emailId = email ? email : await emailObj.randomMailGenerator();
         await this.emailInput.click();
         await this.emailInput.clearValue();
-        await this.emailInput.setValue(driver.emailid);
+        await this.emailInput.setValue(driver.emailId);
         return this;
     }
     async setPassword(pass) {
