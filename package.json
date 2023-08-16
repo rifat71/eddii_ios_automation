@@ -1,0 +1,48 @@
+{
+  "name": "appium_js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/wdio wdio.conf.js",
+    "test-debug": "npx wdio run ./wdio.conf.js --spec signUp.e2e.js",
+    "test-only": "npx wdio run ./wdio.conf.js --spec signUp.e2e.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@wdio/cli": "^7.16.13",
+    "allure-commandline": "^2.18.1",
+    "better-npm-run": "^0.1.1",
+    "bluebird": "^3.7.2",
+    "chai": "^4.3.6",
+    "cookie": "^0.4.1",
+    "deep-equal": "^2.2.1",
+    "js-yaml": "^3.13.1",
+    "jsdom": "^16.5.0",
+    "jsontoxml": "^1.0.1",
+    "lodash": "4.17.21",
+    "lodash.capitalize": "^4.2.1",
+    "randomstring": "^1.2.1",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6"
+  },
+  "devDependencies": {
+    "@wdio/allure-reporter": "^7.25.0",
+    "@wdio/local-runner": "^7.16.13",
+    "@wdio/mocha-framework": "^7.16.13",
+    "@wdio/selenium-standalone-service": "^7.16.13",
+    "@wdio/spec-reporter": "^7.16.13",
+    "child_process": "^1.0.2",
+    "chromedriver": "^110.0.0",
+    "fs-extra": "^4.0.2",
+    "jsforce": "^1.10.1",
+    "node-fetch": "^3.3.0",
+    "object-path": "^0.11.8",
+    "sanitize-filename": "^1.6.1",
+    "typescript": "^3.4.3",
+    "wdio-chromedriver-service": "^8.1.1",
+    "wdio-mochawesome-reporter": "^4.0.0"
+  }
+}

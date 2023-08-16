@@ -1,0 +1,14 @@
+
+
+### Node ###
+node_modules/
+
+### allure-report ###
+allure-report/
+
+### allure-results ###
+allure-results/
+
+driver-logs
+
+.vscode/
